@@ -15,6 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="main.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
       rel="stylesheet"
@@ -42,6 +43,75 @@
       #spinner {
         display: none;
       }
+      * {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.scan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.scan .qrcode {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-image: url(./img/QR_Code01.png);
+  background-size: 400px;
+}
+.scan .qrcode::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url(./img/QR_Code02.png);
+  background-size: 400px;
+  animation: animate 4s linear infinite;
+}
+.scan .qrcode::after {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  width: calc(100% - 40px);
+  height: 2px;
+  background-color: #35fd5c;
+  filter: drop-shadow(0 0 20px #35fd5c) drop-shadow(0 0 60px #35fd5c);
+  animation: animateLine 4s linear infinite;
+}
+/* .scan .border {
+  position: absolute;
+  inset: 0;
+  background-image: url(/img/border.png);
+  background-image: 400px;
+  background-repeat: no-repeat;
+} */
+
+@keyframes animate {
+  0%, 100% {
+    height: 20px;
+  }
+  50% {
+    height: calc(100% - 20px);
+  }
+}
+@keyframes animateLine {
+  0% {
+    top: 20px;
+  }
+  50% {
+    top: calc(100% - 20px);
+  }
+}/*# sourceMappingURL=main .css.map */
     </style>
     <title>Free Online QR Code Generator</title>
   </head>
@@ -96,13 +166,14 @@
             </button>
           </form>
         </div>
-        <div class="w-full md:w-1/3 self-center">
-          <img
-            class="w-1/2 m-auto mb-10 md:w-full"
-            src="img/qr-code.svg"
-            alt=""
-          />
-        </div>
+        <div class="w-full md:w-1/3 self-center justify-center flex">
+          <!-- <div hre></div>
+            -->
+            <iframe src="https://lottie.host/embed/b07bf6c1-d327-43b2-b130-6cd5610ce3cc/mga73RJjwY.json" width="400" height="400"></iframe>
+          <!-- <div class="scan">
+            <div class="qrcode"></div>
+            <div class="border"></div>
+          </div> -->
       </div>
 
       <div
